@@ -2,9 +2,10 @@
 
 namespace Osteel\PhpCompatibilityDemo;
 
+use Money\Currencies\ISOCurrencies;
 use Money\Money;
 
-class CurrencyChecker
+class CurrencyHelper
 {
     public function isSame(Money ...$amounts): bool
     {
@@ -21,5 +22,10 @@ class CurrencyChecker
         }
 
         return true;
+    }
+
+    public function numericCode(Money $amount): int
+    {
+        return (new ISOCurrencies())->numericCodeFor($amount->getCurrency());
     }
 }
