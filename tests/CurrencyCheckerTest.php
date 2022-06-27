@@ -19,6 +19,7 @@ class CurrencyCheckerTest extends TestCase
 
         $this->assertTrue($checker->isSame($amount1, $amount2));
         $this->assertTrue($checker->isSame($amount1, $amount2, $amount3));
-        $this->assertFalse($checker->isSame($amount3, $amount4));
+        $this->assertFalse($checker->isSame($amount1, $amount4));
+        $this->assertFalse($checker->isSame($amount1, $amount2, $amount4));
     }
 }
